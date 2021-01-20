@@ -113,6 +113,7 @@ func getProfile(t *testing.T, client http.Client, cookie *http.Cookie) {
 	assert.Equal(t, resp.StatusCode, 200)
 
 	resBody, err := ioutil.ReadAll(resp.Body)
+	assert.Nil(t, err)
 
 	jsonExpectedUser, err := json.Marshal(expectedUser)
 
