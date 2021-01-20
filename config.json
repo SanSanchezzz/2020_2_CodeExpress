@@ -1,9 +1,9 @@
 {
   "database": {
-    "user": "alexander",
+    "user": "postgres",
     "name": "musicexpress",
     "password": "postgres", 
-    "host": "localhost",
+    "host": "db",
     "port": 5432
   },
   "server": {
@@ -11,15 +11,15 @@
     "port": 8085
   },
   "session_microservice": {
-    "host": "0.0.0.0",
+    "host": "session_service",
     "port": 8086
   },
   "track_microservice": {
-    "host": "0.0.0.0",
+    "host": "track_service",
     "port": 8087
   },
   "admin_microservice": {
-    "host": "0.0.0.0",
+    "host": "127.0.0.1",
     "port": 8088
   }
 }
