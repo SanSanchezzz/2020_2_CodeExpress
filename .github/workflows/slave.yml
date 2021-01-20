@@ -35,10 +35,10 @@ jobs:
           export PATH=$PATH:$(go env GOPATH)/bin
           go get github.com/golangci/golangci-lint/cmd/golangci-lint
           make linter
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Build Docker image
-        run: docker build .
+#  build:
+#    name: Build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v1
+#      - name: Build Docker image
+#        run: docker build .
