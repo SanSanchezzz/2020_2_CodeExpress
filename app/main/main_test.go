@@ -246,7 +246,6 @@ func TestEndToEnd(t *testing.T) {
 	//print(string(resBody))
 	//assert.Equal(t, err, nil)
 	//assert.Equal(t, string(jsonExpectedUser), string(resBody))
-	//
 	//req := &Request{
 	//	Login: "LAKSJJDdks@maail.ru",
 	//	Password: "12345678910",
