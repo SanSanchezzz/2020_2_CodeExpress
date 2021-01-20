@@ -156,6 +156,7 @@ func changeProfile(t *testing.T, client http.Client, cookie *http.Cookie, csrfTo
 	assert.Equal(t, resp.StatusCode, http.StatusOK)
 
 	resBody, err := ioutil.ReadAll(resp.Body)
+	assert.Nil(t, err)
 
 	jsonExpectedUser, err := json.Marshal(expectedUser)
 
