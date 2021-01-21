@@ -1,0 +1,33 @@
+language: go
+go: 1.15.2
+
+services:
+  - postgresql
+
+env:
+  global:
+    - PGUSER=postgres
+    - PGPORT=5432
+
+before_install:
+  - cp .netrc ~/.netrc
+  - chmod 600 ~/.netrc
+
+before_script:
+  - psql -c "SELECT version();"
+  - psql -c "CREATE DATABASE musicexpress" -U postgres
+  - psql -d musicexpress -f ./postgres/initDB.sql
+  - psql -d musicexpress -c "SELECT * FROM artists"
+
+script:
+  # run tests
+  - go run app/track_microservice/main.go config.json
+  - go run app/session_microservice/main.go config.json
+  - go run app/main/main.go config.json
+
+  - make tests
+
+  - psql -c "DROP DATABASE musicexpress"
+
+
+

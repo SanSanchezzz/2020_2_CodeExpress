@@ -3,7 +3,7 @@
 build:
 	go build -o main_service app/main/main.go
 	go build -o track_service app/track_microservice/main.go
-	go build -o session_service app/session_microservice/main.go  
+	go build -o session_service app/session_microservice/main.go
 
 tests:
 	go test -coverpkg=./... -coverprofile cover.out.tmp ./...
