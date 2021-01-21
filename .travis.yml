@@ -1,5 +1,7 @@
 language: go
-go: 1.15.2
+
+go:
+  - "1.15.2"
 
 services:
   - postgresql
@@ -13,6 +15,9 @@ before_install:
   - cp .netrc ~/.netrc
   - chmod 600 ~/.netrc
 
+#install:
+#  - go get -d -v
+
 before_script:
   - psql -c "SELECT version();"
   - psql -c "CREATE DATABASE musicexpress" -U postgres
@@ -21,13 +26,10 @@ before_script:
 
 script:
   # run tests
-  - go run app/track_microservice/main.go config.json
-  - go run app/session_microservice/main.go config.json
-  - go run app/main/main.go config.json
+  #- go run app/track_microservice/main.go config.json
+  #- go run app/session_microservice/main.go config.json
+  #- go run app/main/main.go config.json
 
-  - make tests
+  - env GO111MODULE=on make tests
 
   - psql -c "DROP DATABASE musicexpress"
-
-
-
