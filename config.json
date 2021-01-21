@@ -3,7 +3,7 @@
     "user": "postgres",
     "name": "musicexpress",
     "password": "postgres", 
-    "host": "db",
+    "host": "localhost",
     "port": 5432
   },
   "server": {
