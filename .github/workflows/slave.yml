@@ -30,10 +30,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Build Docker image
         run: docker build .
-     - name: Deploy project
-         script: |
-           sudo docker rm -f $(sudo docker ps -aq)
-           cd 2020_2_CodeExpress/ && docker-compose up -d --force-recreate
   test:
     name: Tests
     runs-on: ubuntu-latest
