@@ -32,7 +32,7 @@ jobs:
         run: docker build .
       - name: Deploy project
         run: |
-          cd 2020_2_CodeExpress/ && docker-compose up -d --force-recreate
+          docker-compose up -d --force-recreate
   test:
     name: Tests
     runs-on: ubuntu-latest
