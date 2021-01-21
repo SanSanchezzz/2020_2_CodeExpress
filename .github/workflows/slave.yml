@@ -35,8 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v1
       - name: Deploy project
-        script: |
+        run: |
           sudo docker rm -f $(sudo docker ps -aq)
           cd 2020_2_CodeExpress/ && docker-compose up -d --force-recreate
   test:
