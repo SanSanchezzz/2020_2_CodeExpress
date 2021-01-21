@@ -42,7 +42,7 @@ func register(t *testing.T, client http.Client) ([]*http.Cookie, string) {
 
 	body := strings.NewReader(string(jsonReq))
 
-	resp, err := client.Post("http://0.0.0.0:8085/api/v1/user", "application/json", body)
+	resp, err := client.Post("http://localhost:8085/api/v1/user", "application/json", body)
 
 	assert.Nil(t, err)
 	assert.Equal(t, resp.StatusCode, 200)
@@ -60,7 +60,7 @@ func register(t *testing.T, client http.Client) ([]*http.Cookie, string) {
 }
 
 func logout(t *testing.T, client http.Client, cookie *http.Cookie, csrfToken string) {
-	request, err := http.NewRequest("DELETE", "http://0.0.0.0:8085/api/v1/session", nil)
+	request, err := http.NewRequest("DELETE", "http://localhost:8085/api/v1/session", nil)
 
 	assert.Nil(t, err)
 
@@ -90,7 +90,7 @@ func login(t *testing.T, client http.Client) ([]*http.Cookie, string) {
 
 	body := strings.NewReader(string(jsonReq))
 
-	resp, err := client.Post("http://0.0.0.0:8085/api/v1/session", "application/json", body)
+	resp, err := client.Post("http://localhost:8085/api/v1/session", "application/json", body)
 	assert.Nil(t, err)
 
 	assert.Equal(t, resp.StatusCode, 200)
@@ -102,7 +102,7 @@ func login(t *testing.T, client http.Client) ([]*http.Cookie, string) {
 }
 
 func getProfile(t *testing.T, client http.Client, cookie *http.Cookie) {
-	request, err := http.NewRequest("GET", "http://0.0.0.0:8085/api/v1/user", nil)
+	request, err := http.NewRequest("GET", "http://localhost:8085/api/v1/user", nil)
 
 	assert.Nil(t, err)
 
@@ -141,7 +141,7 @@ func changeProfile(t *testing.T, client http.Client, cookie *http.Cookie, csrfTo
 
 	body := strings.NewReader(string(jsonReq))
 
-	request, err := http.NewRequest("PUT", "http://0.0.0.0:8085/api/v1/user/profile", body)
+	request, err := http.NewRequest("PUT", "http://localhost:8085/api/v1/user/profile", body)
 
 	assert.Nil(t, err)
 
@@ -184,7 +184,7 @@ func changePassword(t *testing.T, client http.Client, cookie *http.Cookie, csrfT
 
 	body := strings.NewReader(string(jsonReq))
 
-	request, err := http.NewRequest("PUT", "http://0.0.0.0:8085/api/v1/user/password", body)
+	request, err := http.NewRequest("PUT", "http://localhost:8085/api/v1/user/password", body)
 	assert.Nil(t, err)
 
 	request.Header.Add("Content-Type", "application/json")
